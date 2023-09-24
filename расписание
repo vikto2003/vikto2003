@@ -1,0 +1,46 @@
+# Создание основного окна приложения
+app = Tk()
+app.title("ГАПОУ РБ «РМТ»")
+##    app.geometry("800x600")
+
+# Создание градиентного фона
+gradient_frame = Frame(app)
+gradient_frame.pack(fill=BOTH, expand=True)
+
+canvas = Canvas(gradient_frame, width=800, height=600) canvas.pack()
+
+# Настраиваем градиентный фон
+gradient = canvas.create_rectangle(0, 0, 800, 600, fill="turquoise", outline="")
+for i in range(600):
+    color = "#%02x%02x%02x" % (255, int(255 - (i / 600) * 255), int(255 - (i / 600) * 255))
+    canvas.create_line(0, i, 800, i, fill=color)
+
+# Создание заголовка
+title_label = Label(app, text="ГАПОУ РБ «РМТ»", font=("Arial", 24, "bold"), bg="turquoise", fg="yellow")
+title_label.pack(pady=20)
+
+# Расписание пар
+schedule_frame = Frame(app, bg="turquoise")
+schedule_frame.pack(pady=20)
+
+schedule_label = Label(schedule_frame, text="Расписание пар", font=("Arial", 18, "bold"), bg="turquoise", fg="yellow")
+schedule_label.pack(pady=10)
+
+# Здесь ты можешь добавить функциональность для обновления расписания пар
+
+# Актуальные новости
+news_frame = Frame(app, bg="turquoise")
+news_frame.pack(pady=20)
+
+news_label = Label(news_frame, text="Актуальные новости", font=("Arial", 18, "bold"), bg="turquoise", fg="yellow")
+news_label.pack(pady=10)
+
+# Чат с поддержкой
+chat_frame = Frame(app, bg="turquoise")
+chat_frame.pack(pady=20)
+
+chat_label = Label(chat_frame, text="Чат с поддержкой", font=("Arial", 18, "bold"), bg="turquoise", fg="yellow")
+chat_label.pack(pady=10)
+
+# Запуск приложения
+app.mainloop()
